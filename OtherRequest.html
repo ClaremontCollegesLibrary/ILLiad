@@ -1,0 +1,381 @@
+<html>
+<head>
+<title>Other Request</title>
+ <#INCLUDE filename="include_assets.html">
+	<style>
+		.mediatech {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			align-content: normal;
+			justify-content: flex-start;
+			align-items: flex-start;
+		}
+		.mediatech .field {
+			display: inline-block;
+			float: unset;
+			width: 60%;
+		}
+		.mediatech .field ul {
+			margin-top: unset;
+			margin-left: 24px;
+			list-style-type: unset;
+		}
+		.mediatech .field ul li {
+			margin: unset;
+			padding: unset;
+		}
+		.mediatech .col {
+			width: 35%;
+		}
+		.mediatech .col select {
+			width: 100%;
+		}
+	</style>
+</head>
+<body id="type-b">
+<div id="wrap">
+    <#INCLUDE filename="include_header-Micquel.html">
+		<#INCLUDE filename="include_menu.html">
+
+    <div id="content">
+		<form action="illiad.dll" method="post" name="OtherRequest" class="f-wrap-request">
+			<input type="hidden" name="ILLiadForm" value="OtherRequest">
+			<input type="hidden" name="RequestType" value="Loan">
+			<input type="hidden" name="Username" value="<#PARAM name="Username">">
+			<input type="hidden" name="SessionID" value="<#PARAM name="SessionID">">
+				<div class="req"><b>*</b> Indicates required field</div>
+		<fieldset>
+			<h2>Media, Technology, or Other Format</h2>
+            <!--<h2>Media, Musical Score, Technology, or Other Format</h2>-->
+                        <h3>Fill out the form with as much information as possible.</h3>
+			<label for="LoanTitle">
+				<span class="field">
+				<span class="<#ERROR name="ERRORLoanTitle">"><b>Title</b></span><br />
+				</span>
+                		<textarea id="LoanTitle" name="LoanTitle" rows="2" cols="40" class="f-name" tabindex="1"><#PARAM name="LoanTitle"></textarea><br />
+                	</label>
+
+			<label for="LoanAuthor">
+				<span class="field">
+				<span class="<#ERROR name="ERRORLoanAuthor">"><b>Author/Editors</b></span>
+				</span>
+                		<input id="LoanAuthor" name="LoanAuthor" type="text" size="40" class="f-name" tabindex="2" value="<#PARAM name="LoanAuthor">"><br />
+                	</label>
+
+<!--Added 4/7/2020 at Beth Namei's request to make this form look more like Loan Request form-->
+
+			<label for="LoanPublisher">
+				<span class="field">
+                		<span class="<#ERROR name="ERRORLoanPublisher">"><b>Publisher</b></span>
+				</span>
+                		<input id="LoanPublisher" name="LoanPublisher" type="text" size="40" class="f-name" tabindex="3" value="<#PARAM name="LoanPublisher">"><br />
+                	</label>
+
+                	<!--<label for="LoanPlace">
+				<span class="field">
+                		<span class="<#ERROR name="ERRORLoanPlace">"><b>Place of Publication</b></span>
+				</span>
+                		<input id="LoanPlace" name="LoanPlace" type="text" size="40" class="f-name" tabindex="4" value="<#PARAM name="LoanPlace">"><br />
+                	</label>-->
+
+                	<label for="LoanDate">
+                		<span class="field">
+				<span class="<#ERROR name="ERRORLoanDate">"><b>Date of Publication</b></span>
+				</span>
+                		<input id="LoanDate" name="LoanDate" type="text" size="40" class="f-name" tabindex="5" value="<#PARAM name="LoanDate">"><br />
+                	</label>
+
+			<label for="LoanEdition">
+				<span class="field">
+                		<span class="<#ERROR name="ERRORLoanEdition">"><b>Edition</b></span>
+				</span>
+                		<input id="LoanEdition" name="LoanEdition" type="text" size="40" class="f-name" tabindex="6" value="<#PARAM name="LoanEdition">"><br />
+                	</label>
+
+			<!--<label for="AcceptAlternateEdition">
+				<span class="field">
+                		<span class="<#ERROR name="ERRORAcceptAlternateEdition">"><b>Will you accept an alternate edition?</b></span>
+				</span>
+                		<select id="AcceptAlternateEdition" name="AcceptAlternateEdition" size="1" class="f-name" tabindex="12">
+                    		<option selected><#PARAM name="AcceptAlternateEdition"></option>
+                    		<option>No</option>
+                    		<option>Yes</option>
+                		</select>
+                		<br />
+                	</label>-->
+
+			<!--<label for="ItemInfo3">
+				<span class="field">
+                		<span class="req">*</span><span class="<#ERROR name="ERRORItemInfo3">"><b>If Claremont Colleges Library has available, will you accept an ebook?</b></span>
+				</span>
+                		<select id="ItemInfo3" name="ItemInfo3" size="1" class="f-name" tabindex="12">
+                    		<option selected><#PARAM name="ItemInfo3"></option>
+                    		<option>No</option>
+                    		<option>Yes</option>
+                		</select>
+                		<br />
+                	</label>-->
+
+<!--end of 4/7/2020 added content-->
+
+					
+			<label for="ISSN">
+				<span class="field">
+				<span class="<#ERROR name="ERRORISSN">"><b>ISBN</b></span><br />
+				<span class="note">If given will speed request processing</span>
+				</span>
+                		<input id="ISSN" name="ISSN" type="text" size="20" class="f-name" tabindex="7" value="<#PARAM name="ISSN">"><br />
+                	</label>
+					
+                    <label for="DOI">
+                        <span class="field">
+                            <span class="<#ERROR name="ERRORDOI">"><b>DOI (Digital Object Identifier)</b></span>
+                        </span>
+                        <input id="DOI" name="DOI" type="text" size="20" class="f-name" tabindex="" value="<#PARAM name="DOI">"><br />
+                    </label>
+
+			<label for="ESPNumber">
+				<span class="field">
+                                <span class="<#ERROR name="ERRORESPNumber">"><b>OCLC or Docline UI Number</b></span>
+				</span>
+                		<input id="ESPNumber" name="ESPNumber" type="text" size="20" class="f-name" tabindex="9" value="<#PARAM name="ESPNumber">"><br />
+                	</label>
+
+            <label for="NotWantedAfter">
+                <span class="field">
+                <span class="req">*</span>
+                <span class="<#ERROR name="ERRORNotWantedAfter">"><b>Not Wanted After Date</b></span><br />
+                <span class="note">(MM/DD/YYYY)</span>
+                </span>
+                    <input id="NotWantedAfter" name="NotWantedAfter" type="text" size="40" class="f-name" tabindex="10" value="<#PARAM name="NotWantedAfter">"><br />
+            </label>
+
+			<!--<label for="SpecIns">
+				<span class="field">
+                		<span class="req">*</span><span class="<#ERROR name="ERRORSpecIns">"><b>How would you like this item delivered?</b></span><br />
+				</span>
+                		<select id="SpecIns" name="SpecIns" size="1" class="f-name" tabindex="11">
+                    		<option selected><#PARAM name="SpecIns"></option>
+                                <option value="ecopy">E-Copy only</option>
+                                <option value="pickup">I would like to pick-up (Curbside or Walk-In)</option>
+                                <option value="home">If no e-copy available, I would like home delivery</option>
+                                <option value="home">I would like home delivery</option>
+                    		<option value="home">E-copy if available, if not home delivery of print is fine</option>
+                                <option value="pickup">Library owns a print copy I would like to pick up</option>
+                                <option value="deliver">Library owns print copy, I would like home delivery</option>
+                    		<option value="Desk">Held at Main Services Desk</option>
+                		</select>
+			</label>-->
+
+            <label for="ItemInfo2" class="mediatech">
+                <span class="field">
+                    <span class="req">*</span>
+                    <span class="<#ERROR name="ERRORItemInfo2">"><b>What are you requesting?</b></span>
+                    <ul>
+                        <!--Media is only a specifiable option for faculty; see DVD/CD added to Other Format dropdown-->
+                        <!--<li>Media (audio/video)</li>-->
+                        <!--Musical score is only a deliverable option for faculty-->
+                        <!--<li>Musical score</li>-->
+                        <li>Tech Lending (equipment or games)</li>
+                        <li>Other Format</li>
+                    </ul>
+                </span>
+                <div class="col">
+                    <select id="what" required>
+                        <option selected disabled>Please select:</option>
+                        <!--<option value="1">Media (audio/video)</option>-->
+                        <!--<option value="2" value="score">Musical Score</option>-->
+                        <option value="3" value="tech">Tech Lending (equipment or games)</option>
+                        <option value="4">Other format (see drop down menu for all options)</option>
+                    </select>
+
+                    <div aria-live="polite" aria-atomic="true">
+                        <div id="whatCheck" style="display:none; text-indent: 40px">
+                            <p></p>
+                            <select id="preference">
+                                <option selected disabled>Physical or Streaming?</option>
+                                <option value="physical">Physical CD/DVD</option>
+                                <option value="streaming">Streaming audio/video</option>
+                            </select>
+                        </div><!--/#whatCheck--->
+                    </div>
+
+							<div id="whatCheck2" style="display:none;">
+								<p></p>
+								<select id="other">
+									<option selected disabled>Please select Other format:</option>
+									<option value="archival">Archival Material</option>
+									<option value="audiobook">Audiobooks</option>
+                                    <option value="print">Book (print copy)</option>
+									<option value="updating">Continually Updated Resource</option>
+                                    <!--List option for all except faculty-->
+                                    <option value="dvd">DVD/CD</option>
+									<option value="ebook">eBook</option>
+									<option value="file">Computer File</option>
+									<option value="visual">Visual Material</option>
+									<option value="encyclopedia">Encyclopedia</option>
+									<option value="image">Image</option>
+									<option value="int_mm">Interactive Multimedia</option>
+									<option value="internet">Internet Resource</option>
+									<option value="kit">Kit</option>
+									<option value="map">Map</option>
+                                    <!--List option for all except faculty-->
+                                    <option value="score">Musical score</option>
+									<option value="toy">Toy</option>
+								</select>
+							</div><!--/#whatCheck2-->
+
+					<div>
+					<p></p>
+					<!--<input type="hidden" id="hidden" name="ItemInfo2" placeholder="ItemInfo2"/>-->
+                    <input type="hidden" id="ItemInfo2" name="ItemInfo2" placeholder="ItemInfo2"/>
+                    <!--<input type="text" id="ItemInfo2" name="ItemInfo2" placeholder="ItemInfo2"/>-->
+					</div>
+
+				</div>
+			</label>
+
+			<label for="SpecIns" id="delivery" style="display:none;">
+				<span class="field">
+				<span class="req">*</span>
+				<span class="<#ERROR name="ERRORSpecIns">"><b>How would you like this item delivered?</b></span><br /><br />
+				<span class="note" style="background-color:yellow;">* Returnable bags are checked out to your account and must be returned within 2 weeks.</span>
+				</span>
+				<select id="SpecIns" name="SpecIns" size="1" class="f-name" tabindex="11">
+					<option selected><#PARAM name="SpecIns"></option>
+					<option value="ecopy">E-Copy only</option>
+					<option value="pickup">I will pick up</option>
+					<option value="Envelope">Faculty Delivery/Campus Mail - Envelope</option>
+					<option value="Bag">Faculty Delivery/Campus Mail - Returnable bag*</option>
+				</select>
+                <br />
+			</label>
+
+
+            <label for="Notes">
+				<span class="field">
+                		<!--<span class="req">*</span><span class="<#ERROR name="ERRORNotes">"><b>Home Mailing Address / Notes or additional information</b></span><br />-->
+                		<span class="<#ERROR name="ERRORNotes">"><b>Notes/Additional Information</b></span><br />
+                                <!--<span class="note">Put add any additional information.</span>-->
+                        </span>
+                		<textarea id="Notes" name="Notes" rows="2" cols="40" class="f-name" tabindex="14"><#PARAM name="Notes"></textarea><br />
+			</label>
+
+
+			<label for="ItemInfo1" class="purpose">
+				<span class="field">
+				<span class="req">*</span>
+				<span class="<#ERROR name="ERRORItemInfo1">"><b>To help us prioritize your request, please identify the purpose:</b></span><br />
+				</span>
+				<fieldset class="ItemInfo">
+					<label for="Assignment">
+						<input class="check" id="ItemInfo1" type="checkbox" <#PARAM Name="SELECTED" Identifier="ItemInfo1" Value="Assignment"> name="ItemInfo" value="Assignment" />Required reading for a class (course reading)</label>
+
+					<label for="Research">
+						<input class="check" id="ItemInfo1" type="checkbox" <#PARAM Name="SELECTED" Identifier="ItemInfo1" Value="Research"> name="ItemInfo" value="Research" />For research project</label>
+
+					<label for="Leisure">
+						<input class="check" id="ItemInfo1" type="checkbox" <#PARAM Name="SELECTED" Identifier="ItemInfo1" Value="Leisure"> name="ItemInfo" value="Leisure" />For leisure/recreational reading</label>
+
+					<label for="Other">
+						<input class="check" id="ItemInfo1" type="checkbox" <#PARAM Name="SELECTED" Identifier="ItemInfo1" Value="Other"> name="ItemInfo" value="Other" />Other</label>
+
+					<label for="String">
+						<input class="check" id="checks" type="hidden" <#PARAM Name="SELECTED" Identifier="ItemInfo1" Value="String"> name="ItemInfo1" value="String" /></label>
+				</fieldset>
+			</label>
+
+			<label for="CitedIn">
+                                <span class="field">
+                                <span class="<#ERROR name="ERRORCitedIn">"><b>Where did you find this item?</b></span><br />
+                                <span class="note">Examples are Dissertation Abstracts, Dialog (specify which database), or a specific journal or book.</span>
+                                </span>
+                                <textarea id="CitedIn" name="CitedIn" rows="2" cols="40" class="f-name" tabindex="40"><#PARAM name="CitedIn"></textarea><br />
+            </label>
+
+            <#INCLUDE filename="include_request_buttons.html">
+		</fieldset>
+		</form>
+		<#INCLUDE filename="include_footer.html">
+    </div>
+</div>
+
+<script language = "javascript" type = "text/javascript">
+
+   //Used to create string for purpose box
+	function Populate() {
+		vals = $('input[type="checkbox"]:checked').map(function() {
+			return this.value;
+		}).get().join(', ');
+		console.log(vals);
+		$('#checks').val(vals);
+	}
+
+	$('input[type="checkbox"]').on('change', function() {
+		Populate()
+	}).change();
+
+
+   //Used for secondary input boxes
+   $('#what').change(function(){
+      //reset input value on #what change
+      $("#preference").prop("selectedIndex", 0).val();
+      $("#SpecIns").prop("selectedIndex", 0).val();
+      $("#other").prop("selectedIndex", 0).val();
+
+      //Only faculty can request streaming
+        //if (this.value == 1) {
+            //$("#whatCheck").show();
+            //$("#delivery").hide();
+            //$("#whatCheck2").hide();
+            //$("#preference").prop('required', true);
+
+        //} else if (this.value == 2) {
+            //$("#delivery").show();
+            //$("#whatCheck").hide();
+            //$("#whatCheck2").hide();
+            //$("#SpecIns").prop('required', true);
+
+      //} else if (this.value == 4) {
+        if (this.value == 4) {
+          $("#whatCheck2").show();
+          $("#whatCheck").hide();
+          $("#delivery").hide();
+          $("#other").prop('required', true);
+
+      } else {
+          $("#whatCheck").hide();
+          $("#preference").prop('required', false);
+
+          $("#delivery").hide();
+          $("#SpecIns").prop('required', false);
+
+          $("#whatCheck2").hide();
+          $("#other").prop('required', false);
+
+
+      }
+   });
+
+
+   //Used for ItemInfo2 field
+   $('label[for="ItemInfo2"] select').change(function() {
+	console.log(".change function");
+       var id = $(this).attr('id');
+
+       $('input[id=ItemInfo2]').val("");
+
+       //if ((id == 'what' && this.value == '2') || (id == 'what' && this.value == '3') || (id == 'preference') || (id == 'other')) {
+           //$('input[id=ItemInfo2]').val($('option:selected', this).text());
+       if ((id == 'what' && this.value == '1') || (id == 'what' && this.value == '3') || (id == 'preference') || (id == 'other')) {
+           $('input[id=ItemInfo2]').val($('option:selected', this).text());
+
+       }
+   });
+
+
+</script>
+
+</body>
+</html>

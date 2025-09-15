@@ -1,0 +1,238 @@
+<html>
+<head>
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+	</script>
+
+
+<title>Resource Sharing Item Request</title>
+
+ <#INCLUDE filename="include_assets.html">
+
+</head>
+<body id="type-b">
+<div id="wrap">
+    <#INCLUDE filename="include_header-Micquel.html">
+		<#INCLUDE filename="include_menu.html">
+        <div id="content">
+            <form action="illiad.dll" method="post" name="LoanRequest" class="f-wrap-request">
+                <input type="hidden" name="ILLiadForm" value="LoanRequest">
+                <input type="hidden" name="Username" value="<#PARAM name="Username">">
+                <input type="hidden" name="SessionID" value="<#PARAM name="SessionID">">
+                <div class="req"><b>*</b> Indicates required field</div>
+                <fieldset>
+                	<h2>Book Request</h2>
+					<!--Commented out in favor of the status message showing in the include_menu
+					<div id="status"><#STATUS></div>
+					-->
+                	<h3>Fill out the form with as much information as possible.</h3>
+                	<label for="LoanTitle">
+                		<span class="field">
+				<span class="req">*</span>
+				<span class="<#ERROR name="ERRORLoanTitle">"><b>Title</b></span><br />
+				</span>
+                		<textarea id="LoanTitle" name="LoanTitle" rows="2" cols="40" class="f-name" tabindex="2"><#PARAM name="LoanTitle"></textarea><br />
+                	</label>
+					
+			<label for="LoanAuthor">
+				<span class="field">
+				<span class="req">*</span>
+				<span class="<#ERROR name="ERRORLoanAuthor">"><b>Author/Editors</b></span>
+				</span>
+                		<input id="LoanAuthor" name="LoanAuthor" type="text" size="40" class="f-name" tabindex="1" value="<#PARAM name="LoanAuthor">"><br />
+			</label>
+                	
+			<label for="LoanPublisher">
+				<span class="field">
+				<span class="<#ERROR name="ERRORLoanPublisher">"><b>Publisher</b></span>
+				</span>
+                		<input id="LoanPublisher" name="LoanPublisher" type="text" size="40" class="f-name" tabindex="3" value="<#PARAM name="LoanPublisher">"><br />
+                	</label>
+					
+                	<!--<label for="LoanPlace">
+				<span class="field">
+				<span class="<#ERROR name="ERRORLoanPlace">"><b>Place of Publication</b></span>
+				</span>
+                		<input id="LoanPlace" name="LoanPlace" type="text" size="40" class="f-name" tabindex="4" value="<#PARAM name="LoanPlace">"><br />
+                	</label>-->
+					
+                	<label for="LoanDate">
+                		<span class="field">
+				<span class="<#ERROR name="ERRORLoanDate">"><b>Date of Publication</b></span>
+				</span>
+                		<input id="LoanDate" name="LoanDate" type="text" size="40" class="f-name" tabindex="5" value="<#PARAM name="LoanDate">"><br />
+                	</label>
+                
+			<label for="LoanEdition">
+				<span class="field">
+				<span class="<#ERROR name="ERRORLoanEdition">"><b>Edition</b></span>
+				</span>
+                		<input id="LoanEdition" name="LoanEdition" type="text" size="40" class="f-name" tabindex="6" value="<#PARAM name="LoanEdition">"><br />
+                	</label>
+					
+			<label for="AcceptAlternateEdition">
+				<span class="field">
+				<span class="<#ERROR name="ERRORAcceptAlternateEdition">"><b>Will you accept an alternate edition?</b></span>
+				</span>
+                		<select id="AcceptAlternateEdition" name="AcceptAlternateEdition" size="1" class="f-name" tabindex="12">
+                    		<option selected><#PARAM name="AcceptAlternateEdition"></option>
+                    		<option>No</option>
+                    		<option>Yes</option>
+                		</select>
+                		<br />
+                	</label>
+					
+			<!--<label for="ItemInfo3">
+				<span class="field">
+				<span class="req">*</span><span class="<#ERROR name="ERRORItemInfo3">"><b>If Claremont Colleges Library has available, will you accept an ebook?</b></span>
+				</span>
+                		<select id="ItemInfo3" name="ItemInfo3" size="1" class="f-name" tabindex="12">
+                    		<option selected><#PARAM name="ItemInfo3"></option>
+                    		<option>No</option>
+                    		<option>Yes</option>
+                		</select>
+                		<br />
+                	</label>-->
+					
+			<label for="ISSN">
+				<span class="field">
+				<span class="<#ERROR name="ERRORISSN">"><b>ISBN</b></span><br />
+				<span class="note">If given will speed request processing</span>
+				</span>
+                		<input id="ISSN" name="ISSN" type="text" size="20" class="f-name" tabindex="7" value="<#PARAM name="ISSN">"><br />
+                	</label>
+					
+            <!--<label for="CallNumber">					
+				<span class="field">
+				<span class="<#ERROR name="ERRORCallNumber">"><b>Call Number</b></span>
+				</span>
+               		<input id="CallNumber" name="CallNumber" type="text" size="20" class="f-name" tabindex="8" value="<#PARAM name="CallNumber">"><br />
+			</label>-->
+					
+
+                    <label for="DOI">
+                        <span class="field">
+                            <span class="<#ERROR name="ERRORDOI">"><b>DOI (Digital Object Identifier)</b></span>
+                        </span>
+                        <input id="DOI" name="DOI" type="text" size="20" class="f-name" tabindex="" value="<#PARAM name="DOI">"><br />
+                    </label>
+
+			<label for="ESPNumber">
+				<span class="field">
+            	<span class="<#ERROR name="ERRORESPNumber">"><b>OCLC or Docline UI Number</b></span>
+				</span>
+               		<input id="ESPNumber" name="ESPNumber" type="text" size="20" class="f-name" tabindex="9" value="<#PARAM name="ESPNumber">"><br />
+            </label>
+					
+			<label for="NotWantedAfter">
+				<span class="field">
+            	<span class="req">*</span><span class="<#ERROR name="ERRORNotWantedAfter">"><b>Not Wanted After Date</b></span><br />
+				<span class="note">(MM/DD/YYYY)</span>
+				</span>
+					<input id="NotWantedAfter" name="NotWantedAfter" type="text" size="40" class="f-name" tabindex="10" value="<#PARAM name="NotWantedAfter">"><br />
+            </label>
+					
+			<label for="AcceptNonEnglish">
+				<span class="field">
+				<span class="<#ERROR name="ERRORAcceptNonEnglish">"><b>Will you accept the item in a language other than English?</b></span><br />
+				<span class="note">If yes, specify acceptable languages in the notes field.</span>
+				</span>
+                		<select id="AcceptNonEnglish" name="AcceptNonEnglish" size="1" class="f-name" tabindex="11">
+                    		<option selected><#PARAM name="AcceptNonEnglish"></option>
+                    		<option>No</option>
+                    		<option>Yes</option>
+                		</select>
+				<br />
+			</label>
+					
+            <!--<label for="AccountNo">
+				<span class="field">
+				<span class="<#ERROR name="ERRORAccountNo">"><b>Account Number</b></span>
+				</span>
+                		<select id="AccountNo" name="AccountNo" size="1" class="f-name" tabindex="13">
+                    		<#OPTION name="ValidAccounts">
+                		</select>
+                		<br />
+                	</label>-->
+					
+			<label for="SpecIns">
+				<span class="field">
+                		<span class="req">*</span><span class="<#ERROR name="ERRORSpecIns">"><b>How would you like this item delivered?</b></span><br />
+				</span>
+                		<select id="SpecIns" name="SpecIns" size="1" class="f-name" tabindex="11">
+                    		<option selected><#PARAM name="SpecIns"></option>
+                                <option value="ecopy">E-Copy only</option>
+                                <option value="pickup">I will pick up</option>
+                                <!--<option value="home">If no e-copy available, I would like home delivery</option>-->
+                    		<!--<option value="home">E-copy if available, if not home delivery of print is fine</option>-->
+                                <!--<option value="pickup">Library owns a print copy I would like to pick up</option>-->
+                                <!--<option value="deliver">Library owns print copy, I would like home delivery</option>-->
+                    		<!--<option value="Desk">Held at Main Services Desk</option>-->
+                		</select>
+			</label>
+					
+            <label for="Notes">
+				<span class="field">
+				<!--<span class="req">*</span><span class="<#ERROR name="ERRORNotes">"><b>Home Mailing Address / Notes or additional information</b></span><br />-->
+                		<span class="<#ERROR name="ERRORNotes">"><b>Notes/Additional Information</b></span><br />
+                                <!--<span class="note">Put add any additional information.</span>-->
+                               	</span>
+				<textarea id="Notes" name="Notes" rows="2" cols="40" class="f-name" tabindex="14"><#PARAM name="Notes"></textarea><br />
+            </label>
+
+			<label for="ItemInfo1" class="purpose">
+				<span class="field">
+				<span class="req">*</span>
+				<span class="<#ERROR name="ERRORItemInfo1">"><b>To help us prioritize your request, please identify the purpose:</b></span><br />
+				</span>
+				<fieldset class="ItemInfo">
+					<label for="Assignment">
+						<input class="check" id="ItemInfo1" type="checkbox" <#PARAM Name="SELECTED" Identifier="ItemInfo1" Value="Assignment"> name="ItemInfo" value="Assignment" />Required reading for a class (course reading)</label>
+						
+					<label for="Research">
+						<input class="check" id="ItemInfo1" type="checkbox" <#PARAM Name="SELECTED" Identifier="ItemInfo1" Value="Research"> name="ItemInfo" value="Research" />For research project</label>
+						
+					<label for="Leisure">
+						<input class="check" id="ItemInfo1" type="checkbox" <#PARAM Name="SELECTED" Identifier="ItemInfo1" Value="Leisure"> name="ItemInfo" value="Leisure" />For leisure/recreational reading</label>
+						
+					<label for="Other">
+						<input class="check" id="ItemInfo1" type="checkbox" <#PARAM Name="SELECTED" Identifier="ItemInfo1" Value="Other"> name="ItemInfo" value="Other" />Other</label>
+
+					<label for="String">
+						<input class="check" id="checks" type="hidden" <#PARAM Name="SELECTED" Identifier="ItemInfo1" Value="String"> name="ItemInfo1" value="String" /></label>
+				</fieldset>
+			</label>
+
+ 
+			<label for="CitedIn">
+                <span class="field">
+                <span class="<#ERROR name="ERRORCitedIn">"><b>Where did you find this item?</b></span><br />
+                <span class="note">Examples are Dissertation Abstracts, Databases, Google, etc.</span>
+                </span>
+                <textarea id="CitedIn" name="CitedIn" rows="2" cols="40" class="f-name" tabindex="40"><#PARAM name="CitedIn"></textarea><br />
+            </label>
+					
+                	<!--<#INCLUDE filename="include_request_cited.html">-->                
+                    <#INCLUDE filename="include_request_buttons.html">
+                </fieldset>
+            </form>
+            <#INCLUDE filename="include_footer.html">
+        </div>
+</div>
+
+<script>
+	function Populate(){
+		vals = $('input[type="checkbox"]:checked').map(function() {
+			return this.value;
+		}).get().join(', ');
+		console.log(vals);
+		$('#checks').val(vals);
+	}
+	
+	$('input[type="checkbox"]').on('change', function() {
+		Populate()
+		}).change();
+</script>
+
+</body>
+</html>
